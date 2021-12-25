@@ -86,7 +86,6 @@ class Calculator {
     }
 
     #resolve() {
-        console.log('result: ' + this.#result);
         let valueX = this.#memory || this.#register || this.#result;
         let valueY = this.#shadow || this.#register || this.#result;
         if (this.#memory) this.#shadow = this.#register || this.#result;
@@ -120,7 +119,6 @@ class Calculator {
     }
 
     #format(number) {
-        console.log('result: ' + number);
         if (!Number.isFinite(number)) return 'MathError';
         if (!(Math.abs(number) < 10000000000000)) return 'OutOfRange';
         let maxLength = (number > 0) ? 13 : 14;
