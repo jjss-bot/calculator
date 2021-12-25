@@ -18,6 +18,7 @@ Simple web calculator.
 * Similar to Windows 10 calculator standard mode.
 
 ## To do
+* Add comments.
 * Code improvement.
  
 ## Technologies
