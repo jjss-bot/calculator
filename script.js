@@ -7,7 +7,6 @@ class Calculator {
 
     constructor() {
         this.#clear();
-        this.#register = ''
     }
 
     input(key) {
