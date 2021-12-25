@@ -1,0 +1,85 @@
+:root {
+    --defaultColor: transparent;
+}
+
+* {
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(34, 34, 37);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    height: 100vh;
+    user-select: none;
+}
+
+.calculator-container {
+    border: 2px solid rgb(155, 152, 152);
+    border-radius: 6px;
+    width: 350px;
+    padding: 0 5px;
+}
+
+.display-container {
+    display: block;
+    padding: 20px 0;
+}
+
+.display-container span {
+    display: block;
+    border: 2px solid rgb(155, 152, 152);
+    border-radius: 6px;
+    text-align: right;
+    font-family: monospace;
+    font-size: 3em;
+    color: rgb(219, 219, 219);
+    width: calc(100% - 20px);
+    margin: 0 auto;
+   padding: 0 5px;
+}
+
+.keyboard-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: 260px;
+    gap: auto;
+}
+
+button {
+    background-color: var(--defaultColor);
+    border: 1px solid rgb(155, 152, 152);
+    border-radius: 4px;
+    width: 60px;
+    height: 60px;
+    color: rgb(219, 219, 219);
+    cursor:pointer;
+}
+
+.equal {
+    width: 126px;
+}
+
+button:active {
+    background-color: #5ad4a3d6
+}
+
+.operator:active {
+    background-color: #f06161d6;
+}
+
+.delete:active {
+    background-color: #e0b05dd6; 
+}
+
+.equal:active {
+    background-color: #52bee2d6;
+}
