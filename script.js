@@ -70,7 +70,6 @@ class Calculator {
     #negative() {
         let neg;
         if (neg = Number(this.#register)) this.#register = String(neg * -1);
-
         if (neg = Number(this.#result)) this.#result = String(neg * -1);
     }
 
@@ -90,7 +89,7 @@ class Calculator {
         if (this.#memory) this.#shadow = this.#register || this.#result;
         
         this.#result = this.#operate(valueX, valueY, this.#operator);
-        
+
         this.#deleteMemory();
     }
 
@@ -136,9 +135,7 @@ class Calculator {
 const screen = document.getElementById('display');
 let calc = new Calculator();
 
-
 document.getElementById('keyboard').addEventListener('click', event => {
-    
     if (event.target.nodeName == 'BUTTON') {
         screen.textContent = calc.input(event.target.getAttribute('data-key'));
     }
@@ -149,7 +146,6 @@ const keys = document.getElementsByTagName('button');
 let changeBackground , pressedButton = 0;
 
 window.addEventListener('keydown', event => {
-
     if (keyboard.has(event.key)) {
         let color =  '#5ad4a3d6';
         if (isNaN(event.key) && event.key != '.' && event.key != ' ') {
@@ -166,19 +162,19 @@ window.addEventListener('keydown', event => {
         }
         
         clearTimeout(changeBackground);
-        clerBackgroud();
+        clearBackgroud();
         
         pressedButton = keyboard.get(event.key);
         keys[pressedButton].style.setProperty('--defaultColor', color);
         
         screen.textContent = calc.input(event.key);
         
-        changeBackground = setTimeout(clerBackgroud, 200);
+        changeBackground = setTimeout(clearBackgroud, 200);
         event.preventDefault();
     }
 });
 
-function clerBackgroud() {
+function clearBackgroud() {
     keys[pressedButton].style.setProperty('--defaultColor', 'transparen'); 
 }
 
