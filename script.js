@@ -10,46 +10,44 @@ class Calculator {
     }
 
     input(key) {
-
-        if (isNaN(this.#result)) this.#clear();
+        if (isNaN(this.#result) && this.#result != '.') this.#clear();
   
         if (!isNaN(key) && key != ' ') {
-            this.#addDigit(key)
+            this.#appendDigit(key)
         } else {
             switch (key) {
                 case 'Enter':
                     this.#resolve();
                     break;
                 case 'Backspace':
-                    this.#deleteDigit();
+                    this.#deleteLastDigit();
                     break;
                 case 'CA':
                     this.#clear();
                     break;
                 case '.':
-                    this.#addDecimal();
+                    this.#appendDot();
                     break;
                 case 'negative': 
-                    this.#negative();
+                    this.#negation();
                     break;
                 default:
                     this.#setOperator(key);
             }
         }
-        
         return this.#result;
     }
 
-    #addDigit(digit) {
+    #appendDigit(digit) {
         if (this.#register.length < 13) this.#register += digit;
         this.#result = this.#register;
     }
 
-    #addDecimal() {
-        if(!this.#register.includes('.')) this.#addDigit('.');
+    #appendDot() {
+        if(!this.#register.includes('.')) this.#appendDigit('.');
     }
 
-    #deleteDigit() {
+    #deleteLastDigit() {
         if (this.#register) {
             this.#register = this.#register.slice(0, this.#register.length - 1);
             this.#result = this.#register || '0';
@@ -62,12 +60,12 @@ class Calculator {
         this.#shadow = '';
     }
 
-    #deleteMemory() {
+    #clearMemory() {
         this.#memory = '';
         this.#register = '';
     }
 
-    #negative() {
+    #negation() {
         let neg;
         if (neg = Number(this.#register)) this.#register = String(neg * -1);
         if (neg = Number(this.#result)) this.#result = String(neg * -1);
@@ -90,7 +88,7 @@ class Calculator {
         
         this.#result = this.#operate(valueX, valueY, this.#operator);
 
-        this.#deleteMemory();
+        this.#clearMemory();
     }
 
     #operate(a, b, operator) {
