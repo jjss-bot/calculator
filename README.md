@@ -14,8 +14,6 @@ Simple web calculator.
 ## Features
 * Four basic Operations.
 * Keyboard support.
-* Up to 11 decimals precision.
-* Similar to Windows 10 calculator standard mode.
 
 ## Demo
 [Live Demo](https://jjss-bot.github.io/calculator/)
